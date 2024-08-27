@@ -1,12 +1,3 @@
-CREATE TABLE task(
-    id SERIAL PRIMARY KEY,
-    title VARCHAR(255) UNIQUE NOT NULL,
-    description TEXT,
-    user_id INTEGER REFERENCES users(id),
-    date DATE DEFAULT CURRENT_DATE
-);
-
-
 CREATE TABLE users(
     id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
@@ -15,3 +6,14 @@ CREATE TABLE users(
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+
+CREATE TABLE task(
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    description TEXT,
+    user_id INTEGER REFERENCES users(id),
+    date DATE DEFAULT CURRENT_DATE
+);
+
+

@@ -13,13 +13,13 @@ function TaskCard({ task }) {
         <div className="flex gap-x-2 items-center">
           <button className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md"
             onClick={() => {
-              deleteTask(task._id);
+              deleteTask(task.id);
             }}
           >
             delete
           </button>
           <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md">
-            <Link to={`/tasks/${task._id}`}>edit</Link>
+            <Link to={`/tasks/${task.id}`}>edit</Link>
           </button>
         </div>
       </header>

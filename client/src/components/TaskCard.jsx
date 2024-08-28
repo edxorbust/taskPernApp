@@ -24,7 +24,7 @@ function TaskCard({ task }) {
         </div>
       </header>
       <p className="text-slate-300">{task.description}</p>
-      <p>{dayjs(task.date).utc().format("DD/MM/YYYY")}</p>
+      <p>{dayjs(task.date).utc().format("DD-MM-YYYY")}</p>
     </div>
   );
 }

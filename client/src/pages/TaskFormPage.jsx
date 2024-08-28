@@ -28,7 +28,7 @@ function TaskFormPage() {
   const onSubmit = handleSubmit((data) => {
     const dataValid = {
       ...data,
-      date: data.date ? dayjs.utc(data.date).format().replaceAll("/", "-") : dayjs.utc().format(),
+      date: data.date ? dayjs.utc(data.date).format() : dayjs.utc().format(),
     };
     console.log(data.date)
     if (params.id) {

@@ -30,7 +30,7 @@ function TaskFormPage() {
       ...data,
       date: data.date ? dayjs.utc(data.date).format().replaceAll("/", "-") : dayjs.utc().format(),
     };
-
+    console.log(data.date)
     if (params.id) {
       updateTask(params.id, dataValid);
     } else {

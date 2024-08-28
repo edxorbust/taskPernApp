@@ -19,7 +19,7 @@ function TaskFormPage() {
         const task = await getTask(params.id);
         setValue("title", task.title);
         setValue("description", task.description);
-        setValue("date", dayjs.utc(task.date).format("YYYY/MM/DD"));
+        setValue("date", dayjs.utc(task.date).format("YYYY-MM-DD"));
       }
     };
     loadTask();

@@ -3,7 +3,7 @@ import { TOKEN_SECRET } from "../config.js";
 
 export const authRequired = (req, res, next) => {
   const { authorization } = req.headers;
-
+  console.log(authorization);
   if (!authorization) return res.status(401).json({ message: "No token" });
 
   const token = authorization.split(" ")[1];

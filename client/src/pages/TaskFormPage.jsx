@@ -14,7 +14,6 @@ function TaskFormPage() {
 
   useEffect(() => {
     const loadTask = async () => {
-      console.log(params.id);
       if (params.id) {
         const task = await getTask(params.id);
         setValue("title", task.title);

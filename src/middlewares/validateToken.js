@@ -1,17 +1,20 @@
-import jwt from 'jsonwebtoken';
-import { TOKEN_SECRET } from '../config.js';
+import jwt from "jsonwebtoken";
+import { TOKEN_SECRET } from "../config.js";
 
 export const authRequired = (req, res, next) => {
-    const {token} = req.cookies;
+  const { authorization } = req.headers;
 
-    if (!token) return res.status(401).json({message: "No token"});
+  if (!authorization) return res.status(401).json({ message: "No token" });
 
-    jwt.verify(token, TOKEN_SECRET, (err, user) =>{
-        if (err) return res.status(403).json({ message: "Invalid Token"});
+  const token = authorization.split(" ")[1];
 
-        req.user = user
+  if (!token) return res.status(401).json({ message: "No token" });
 
-        next();
-    })
+  jwt.verify(token, TOKEN_SECRET, (err, user) => {
+    if (err) return res.status(403).json({ message: "Invalid Token" });
 
+    req.user = user;
+
+    next();
+  });
 };

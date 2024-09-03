@@ -94,7 +94,11 @@ export const profile = async (req, res) => {
 };
 
 export const verifyToken = async (req, res) => {
-  const { token } = req.cookies;
+  const { authorization } = req.headers;
+
+  if (!authorization) return res.status(401).json({ message: "Unauthorized" });
+
+  const token = authorization.split(" ")[1];
 
   if (!token) return res.status(401).json({ message: "Unauthorized" });
 

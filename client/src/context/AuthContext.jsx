@@ -27,6 +27,11 @@ export const AuthProvider = ({ children }) => {
       const res = await registerRequest(user);
       setUser(res.data);
       setIsAuthenticated(true);
+      Cookies.set("token", res.data.token, {
+        secure: true,
+        sameSite: "none",
+        expires: 60 * 60 * 24 * 7,
+      });
     } catch (error) {
       setErrors(error.response.data);
     }
@@ -37,6 +42,11 @@ export const AuthProvider = ({ children }) => {
       const res = await loginRequest(user);
       setIsAuthenticated(true);
       setUser(res.data);
+      Cookies.set("token", res.data.token, {
+        secure: true,
+        sameSite: "none",
+        expires: 60 * 60 * 24 * 7,
+      });
     } catch (error) {
       if (Array.isArray(error.response.data)) {
         setErrors(error.response.data);

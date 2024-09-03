@@ -16,12 +16,13 @@ export const register = async (req, res) => {
     const token = await createAccessToken({ id: result.rows[0].id });
     console.log(token);
 
-    res.cookie("token", token,{
+    res.cookie("token", token, {
       httpOnly: true,
-      sameSite: 'none',
-      maxAge: 24 * 60 * 60 * 1000
+      sameSite: "none",
+      maxAge: 24 * 60 * 60 * 1000,
     });
     res.json({
+      token: token, // accessToken
       id: result.rows[0].id,
       username: result.rows[0].name,
       email: result.rows[0].email,
@@ -53,15 +54,16 @@ export const login = async (req, res) => {
 
     res.cookie("token", token, {
       httpOnly: true,
-      sameSite: 'none',
-      maxAge: 24 * 60 * 60 * 1000
+      sameSite: "none",
+      maxAge: 24 * 60 * 60 * 1000,
     });
     res.json({
+      token: token, // accessToken
       id: userFound.rows[0].id,
       username: userFound.rows[0].name,
       email: userFound.rows[0].email,
     });
-    console.log(userFound.rows[0].id)
+    console.log(userFound.rows[0].id);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

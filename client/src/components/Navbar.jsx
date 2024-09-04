@@ -22,6 +22,22 @@ function Navbar() {
             </li>
             <li>
               <Link
+                className="bg-indigo-500 px-4 py-1 rounded-md"
+                to="/"
+              >
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link
+                className="bg-indigo-500 px-4 py-1 rounded-md"
+                to="/tasks"
+              >
+                Tasks
+              </Link>
+            </li>
+            <li>
+              <Link
                 to="/"
                 onClick={() => {
                   logout();

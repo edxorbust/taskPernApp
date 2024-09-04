@@ -2,9 +2,9 @@ import { date } from "zod";
 import { pool } from "../db.js";
 
 export const getTasks = async (req, res) => {
-  console.log(req.user.id);
+  
   const result = await pool.query("SELECT * FROM task WHERE user_id = $1", [req.user.id]);
-  console.log(result.rows);
+
   return res.json(result.rows);
 };
 

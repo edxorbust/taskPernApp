@@ -11,7 +11,7 @@ function Navbar() {
       <ul className="flex gap-x-2">
         {isAuthenticated ? (
           <>
-            <li>Welcome {user.username}</li>
+            <li>Welcome <h3 className="font-bold">{user.username}</h3></li>
             <li>
               <Link
                 className="bg-indigo-500 px-4 py-1 rounded-md"
@@ -21,19 +21,13 @@ function Navbar() {
               </Link>
             </li>
             <li>
-              <Link
-                className="bg-indigo-500 px-4 py-1 rounded-md"
-                to="/"
-              >
-                Home
+              <Link className="bg-indigo-500 px-4 py-1 rounded-md" to="/tasks">
+                Tasks
               </Link>
             </li>
             <li>
-              <Link
-                className="bg-indigo-500 px-4 py-1 rounded-md"
-                to="/tasks"
-              >
-                Tasks
+              <Link className="bg-indigo-500 px-4 py-1 rounded-md" to="/">
+                Home
               </Link>
             </li>
             <li>

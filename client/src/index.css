@@ -3,8 +3,76 @@
 @tailwind utilities;
 
 body {
-    background-color: #202020;
-    color: white;
+  background-color: #202020;
+  color: white;
+}
 
+.nav-res {
+  display: flex;
+}
 
+#menu-icon {
+  font-size: 35px;
+  z-index: 10001;
+  cursor: pointer;
+  display: none;
+}
+
+.username1 {
+  display: block;
+}
+
+.card-res {
+  display: block;
+}
+
+.btn-task-res {
+  margin: 15px 0px;
+}
+.word-res {
+    word-break: break-word;
+}
+
+@media (max-width: 430px) {
+  .nav-res {
+    display: none;
+  }
+  #menu-icon {
+    display: block;
+  }
+
+  .nav-res {
+    position: absolute;
+    top: 11%;
+    right: -100%;
+    width: 255px;
+    min-height: 30vh;
+    display: flex;
+    flex-direction: column;
+    background: rgba(29, 29, 29, 0.85);
+    padding: 15px;
+    border-radius: 10px;
+    transition: all 0.5s ease;
+  }
+  .nav-res a {
+    display: block;
+    padding: 10px;
+    font-size: 22px;
+    margin: 7px 0px;
+  }
+  .nav-res.active {
+    right: 0;
+    top: 11%;
+  }
+  .username1 {
+    margin-bottom: 7px;
+    margin-top: 10px;
+    margin-left: 20px;
+  }
+  .card-res {
+    display: block;
+  }
+  .btn-task-res {
+    margin: 15px 0px;
+  }
 }
